@@ -1,13 +1,14 @@
-html, body{
+html{
     width: 100%;
-    min-height: 100%;
+    height: 100%;
     color: #FFC107;
     background: url(../img/bg.jpg) no-repeat center;
     background-size: 100% 100%;
 }
 body{
-    background: rgba(0, 0, 0, 0.5);
-    height: calc(100% - 120px);
+    color: #FFC107;
+    background: rgba(0, 0, 0, 0.83);
+    min-height: 100%;
 }
 ol, ul {
     list-style: none;
@@ -29,29 +30,26 @@ ol, ul, h3{
 .header-div .i18n li{
     display: inline-block;
     margin: 0 0 0 10px;
-    border: 1px solid #FFC107;
-    font-size: 14px;
-    padding: 3px 10px;
-    border-radius: 50px;
 }
-.header-div .i18n li,.header-div .i18n li:hover,
-.header-div .i18n li:active{
-    width: 40px;
+.header-div .i18n li .btn,.header-div .i18n li:hover .btn,
+.header-div .i18n li:active .btn{
+    width: 45px;
 } 
-.header-div .i18n li,.header-div .i18n li:hover,
-.header-div .i18n li:active, .navbar-nav li:active,
+.header-div .i18n li .btn,.header-div .i18n li:hover .btn,
+.header-div .i18n li:active .btn, .navbar-nav li:active,
 .navbar-nav li, .navbar-nav li:hover,
 .navbar-nav li:active,.navbar-nav li.active{
     text-align: center;
 }
-.header-div .i18n li:hover {
-    border-bottom: 3px solid #FFC107;
+.header-div .i18n li:hover .btn{
+    background: #FFC107;
+    color: #000000;
 }
 .navbar-nav li:hover a.nav-link{
     border-bottom: 3px solid rgba(255, 193, 7, 0.78);
     transition: all .15s ease-in-out;
 }
-.header-div .i18n li:active, .navbar-nav li:active a.nav-link,
+.header-div .i18n li:active .btn, .navbar-nav li:active a.nav-link,
 .navbar-nav li.active a.nav-link{
     border-bottom: 3px solid #FFC107;
     transition: all .15s ease-in-out;
@@ -66,11 +64,13 @@ ol, ul, h3{
     background-color: rgba(248,249,250,0.15);
     box-shadow: 0 0 1rem 0.5rem rgba(33,37,41,0.1);
     border-radius: 5px;
-    margin: 0 0 0 10px;
     -webkit-transition-duration: .4s;
     transition-duration: .4s;
+    color: #FFC107;
+    font-size: 12px;
 }
-.btn-login,.nav-services .dropdown-item:focus,.nav-services .dropdown-item:hover{
+.btn, .btn-login,.nav-services .dropdown-item:focus,
+.nav-services .dropdown-item:hover{
     background: #FFC107;
     color: #000000;
     font-size: 14px;
@@ -85,8 +85,8 @@ ol, ul, h3{
 .nav-services .dropdown-item:focus,.nav-services .dropdown-item:hover{
     background: rgba(255, 193, 7, 0.89);
 }
-.btn-login:hover{
-    box-shadow: 1px 1px 2px #FFC107;
+.btn:hover{
+    transform: scale(1.1);
 }
 .navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active,
 .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link,
@@ -114,7 +114,7 @@ li.nav-item:last-child{
     border-right: none;
 }
 main{
-    padding: 65px 0 45px 0;
+    padding: 30px 0 125px 0;
 }
 .tax-img{
     width: 100%;
@@ -125,13 +125,78 @@ main{
 .social-media {
     width: 100%;
 }
-footer{
+footer{    
+    position: absolute;
     width: 100%;
     height: 41px;
+    bottom: 0;
     line-height: 40px;
-    background-color: rgba(245, 245, 245, 0.27);
+    background-color: rgba(82, 77, 77, 0.25);
+    color: #FFC107;
+    box-shadow: 0px 0px 1px #FFC107;
+}
+
+/* stepper */
+.report-div{
+    box-shadow: 1px 1px 1px #eeeeee;
+}
+
+.progressBar li {
+    list-style-type: none;
+    float: left;
+    width: 18%;
+    position: relative;
+    text-align: center;
+}
+
+.progressBar li:before {
+    content: " ";
+    line-height: 30px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border: 4px solid rgba(221, 221, 221, 0.18);
+    display: block;
+    text-align: center;
+    margin: 0 auto 10px;
+    background-color: rgba(96, 125, 139, 0.36);
+}
+
+.progressBar li:after {
+    content: "";
+    position: absolute;
+    width: 75%;
+    height: 2px;
+    background-color: #eeeeee;
+    top: 14px;
+    left: -38%;
+    z-index: -1;
+}
+
+/* form */
+.btn-continue{
+    max-width: 100px;
+}
+
+.progressBar li:first-child:after {
+    content: none;
+}
+
+.progressBar li.active {
     color: #FFC107;
 }
+
+.progressBar li.active:before {
+    border-color: #c59401;
+    background-color: #FFC107
+}
+
+.progressBar li.active + li:after {
+    background-color: #FFC107;
+    border: 2px solid;
+}
+
+
 
 /* mobile */
 @media only screen and (max-width: 768px) {
